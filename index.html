@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting System</title>
+    <link rel="main.css" type="text/css">
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        class Voting extends React.Component{
+            constructor(){
+              super();
+              this.state={
+                  bjp:0,
+                  congress:0,
+                  aap:0,
+              }
+            }
+            addBjp = () => {
+                let count = this.state.bjp;
+                count =count+1;
+                this.setState({bjp: count});
+            }
+            addCongress=()=>{
+                let count = this.state.congress;
+                count =count+1;
+                this.setState({congress: count});
+            }
+            addAap=()=>{
+                let count = this.state.aap;
+                count =count+1;
+                this.setState({aap: count});
+            }
+            render(){
+                return(
+                    <div className="votes">
+                        <h1 onClick={this.addBjp}>Bjp votes are:{this.state.bjp}<span>click me to vote</span></h1>
+                        <h1 onClick={this.addCongress}>congress votes are:{this.state.congress}</h1>
+                        <h1 onClick={this.addAap}>aap votes are:{this.state.aap}</h1>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Voting />,document.getElementById('container'));
+    </script>
+</body>
+</html>
